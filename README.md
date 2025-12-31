@@ -20,12 +20,14 @@ V – Overflow
 
 # 🧠 ALU Architecture
 
-Input width: 8-bit
-Output width: 8-bit
-Temporary register: 9-bit (for carry/borrow detection)
-Operation selection:
-Mode = 0 → Arithmetic operations
-Mode = 1 → Logical operations
+| Parameter     | Value                 |
+| ------------- | --------------------- |
+| Input Width   | 8-bit                 |
+| Output Width  | 8-bit                 |
+| Temp Register | 9-bit                 |
+| Mode 0        | Arithmetic Operations |
+| Mode 1        | Logical Operations    |
+
 
 # 🔌 Port Description
 | Signal | Width | Description   |
@@ -80,8 +82,10 @@ Mode = 1 → Logical operations
 
 # 🚩 Status Flags Explanation
 
-Z (Zero): Set when output f == 0
-N (Negative): Copy of MSB (f[7])
-C (Carry): From 9th bit of arithmetic result
+| Flag | Meaning         |
+| ---- | --------------- |
+| Z    | Output is zero  |
+| N    | MSB of output   |
+| C    | Carry / Borrow  |
+| V    | Signed overflow |
 
-V (Overflow): Signed overflow detection logic
