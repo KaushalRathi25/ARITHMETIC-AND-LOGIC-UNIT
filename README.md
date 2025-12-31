@@ -10,8 +10,11 @@ The ALU supports both arithmetic and logical operations selected using a Mode si
 
 The design also generates standard status flags:
 Z – Zero
+
 N – Negative
+
 C – Carry / Borrow
+
 V – Overflow
 
 
@@ -24,45 +27,56 @@ Operation selection:
 Mode = 0 → Arithmetic operations
 Mode = 1 → Logical operations
 
-🔌 Port Description
-Signal	Width	Description
-a	8-bit	Operand A
-b	8-bit	Operand B
-cin	1-bit	Carry input
-Mode	1-bit	Operation mode
-OP	4-bit	Opcode
-f	8-bit	ALU output
-Z	1-bit	Zero flag
-N	1-bit	Negative flag
-C	1-bit	Carry flag
-V	1-bit	Overflow flag
+# 🔌 Port Description
+| Signal | Width | Description   |
+| ------ | ----- | ------------- |
+| a      | 8     | Operand A     |
+| b      | 8     | Operand B     |
+| cin    | 1     | Carry input   |
+| Mode   | 1     | Mode select   |
+| OP     | 4     | Opcode        |
+| f      | 8     | ALU Output    |
+| Z      | 1     | Zero flag     |
+| N      | 1     | Negative flag |
+| C      | 1     | Carry flag    |
+| V      | 1     | Overflow flag |
+
 
 # ➕ Arithmetic Operations (Mode = 0)
-Opcode	Operation
-0000	ADD
-0001	SUB
-0010	INC (A + 1)
-0011	DEC (A − 1)
-0100	ADD with Carry
-0101	SUB with Borrow
-0110	Comparator
-Comparator Output Logic
 
-Z = 1 → A = B
-N = 1 → A < B
-C = 1 → A > B
+| Opcode | Operation       |
+| ------ | --------------- |
+| 0000   | ADD             |
+| 0001   | SUB             |
+| 0010   | INC             |
+| 0011   | DEC             |
+| 0100   | ADD with Carry  |
+| 0101   | SUB with Borrow |
+| 0110   | Comparator      |
+
+# Comparator Output
+
+| Condition | Flag  |
+| --------- | ----- |
+| A = B     | Z = 1 |
+| A < B     | N = 1 |
+| A > B     | C = 1 |
+
 
 # 🔀 Logical Operations (Mode = 1)
-Opcode	Operation
-0111	OR
-1000	AND
-1001	NOT
-1010	XOR
-1011	Logical Left Shift
-1100	Logical Right Shift
-1101	Arithmetic Right Shift
-1110	Rotate Left
-1111	Rotate Right
+
+| Opcode | Operation        |
+| ------ | ---------------- |
+| 0111   | OR               |
+| 1000   | AND              |
+| 1001   | NOT              |
+| 1010   | XOR              |
+| 1011   | Left Shift       |
+| 1100   | Right Shift      |
+| 1101   | Arithmetic Shift |
+| 1110   | Rotate Left      |
+| 1111   | Rotate Right     |
+
 
 # 🚩 Status Flags Explanation
 
