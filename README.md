@@ -1,44 +1,27 @@
 # ARITHMETIC-AND-LOGIC-UNIT
 ALU with 16 operation
 
-8-Bit ALU Design in Verilog (Vivado)
-📌 Project Overview
+# 8-Bit ALU Design in Verilog (Vivado)
+
+# 📌 Project Overview
 
 This project implements an 8-bit Arithmetic Logic Unit (ALU) using Verilog HDL.
 The ALU supports both arithmetic and logical operations selected using a Mode signal and 4-bit opcode (OP).
 
 The design also generates standard status flags:
-
 Z – Zero
-
 N – Negative
-
 C – Carry / Borrow
-
 V – Overflow
 
-This project is suitable for:
 
-Digital design practice
-
-Verilog fundamentals
-
-Resume / internship projects
-
-CPU or processor building blocks
-
-🧠 ALU Architecture
+# 🧠 ALU Architecture
 
 Input width: 8-bit
-
 Output width: 8-bit
-
 Temporary register: 9-bit (for carry/borrow detection)
-
 Operation selection:
-
 Mode = 0 → Arithmetic operations
-
 Mode = 1 → Logical operations
 
 🔌 Port Description
@@ -53,7 +36,8 @@ Z	1-bit	Zero flag
 N	1-bit	Negative flag
 C	1-bit	Carry flag
 V	1-bit	Overflow flag
-➕ Arithmetic Operations (Mode = 0)
+
+# ➕ Arithmetic Operations (Mode = 0)
 Opcode	Operation
 0000	ADD
 0001	SUB
@@ -65,12 +49,10 @@ Opcode	Operation
 Comparator Output Logic
 
 Z = 1 → A = B
-
 N = 1 → A < B
-
 C = 1 → A > B
 
-🔀 Logical Operations (Mode = 1)
+# 🔀 Logical Operations (Mode = 1)
 Opcode	Operation
 0111	OR
 1000	AND
@@ -81,12 +63,11 @@ Opcode	Operation
 1101	Arithmetic Right Shift
 1110	Rotate Left
 1111	Rotate Right
-🚩 Status Flags Explanation
+
+# 🚩 Status Flags Explanation
 
 Z (Zero): Set when output f == 0
-
 N (Negative): Copy of MSB (f[7])
-
 C (Carry): From 9th bit of arithmetic result
 
 V (Overflow): Signed overflow detection logic
